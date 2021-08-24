@@ -1,0 +1,14 @@
+---
+- name: création d'un répertoire
+  hosts: AWS
+  tasks:
+    - name: utilisatation la fontion FILE
+      ansible.builtin.file:
+        path: /tmp/testdir
+        state: directory
+        mode: '0755'
+      register: dir
+    
+    - name: vérification de la création
+      debug:
+        var: dir
